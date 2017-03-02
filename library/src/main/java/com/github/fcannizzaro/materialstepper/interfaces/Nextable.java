@@ -1,5 +1,7 @@
 package com.github.fcannizzaro.materialstepper.interfaces;
 
+import android.content.Context;
+
 /**
  * @author Francesco Cannizzaro (fcannizzaro).
  */
@@ -9,7 +11,7 @@ public interface Nextable {
 
     boolean isOptional();
 
-    void onStepVisible();
+    void onStepVisible(Context applicationContext);
 
     void onNext();
 

@@ -1,5 +1,7 @@
 package com.github.fcannizzaro.materialstepper.style;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
@@ -23,16 +25,34 @@ public class BasePager extends BaseStyle {
     // adapters
     protected Pageable mPagerAdapter;
 
+
+    protected final static String CURRENT = "CURRENT";
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+            mSteps.current(savedInstanceState.getInt(CURRENT, 0));
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(CURRENT, mSteps.current());
+    }
+
     protected void init() {
         super.init();
         mPager = (ViewPager) findViewById(R.id.stepPager);
         assert mPager != null;
         mPager.setAdapter((PagerAdapter) mPagerAdapter);
-        mSteps.get(0).onStepVisible();
+        mSteps.get(mSteps.current()).onStepVisible(getApplicationContext());
         mPager.addOnPageChangeListener(new PageChangeAdapter() {
             @Override
             public void onPageSelected(int position) {
-                mSteps.get(position).onStepVisible();
+                mSteps.get(position).onStepVisible(getApplicationContext());
             }
         });
     }
