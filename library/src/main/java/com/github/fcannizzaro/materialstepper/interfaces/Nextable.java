@@ -13,7 +13,7 @@ public interface Nextable {
 
     void onStepVisible(Context applicationContext);
 
-    void onNext();
+    void onNext(Context applicationContext);
 
     void onPrevious();
 

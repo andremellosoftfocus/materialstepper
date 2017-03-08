@@ -1,5 +1,6 @@
 package com.github.fcannizzaro.materialstepper.style;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -170,7 +171,7 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
     }
 
     @Override
-    public void onNext() {
+    public void onNext(Context applicationContext) {
 
         AbstractStep step = mSteps.getCurrent();
 
