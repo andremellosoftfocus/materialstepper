@@ -52,7 +52,11 @@ public class BasePager extends BaseStyle {
         mPager.addOnPageChangeListener(new PageChangeAdapter() {
             @Override
             public void onPageSelected(int position) {
-                mSteps.get(position).onStepVisible(getApplicationContext());
+                //mSteps.get(position).onStepVisible(getApplicationContext());
+                if (getStateAdapter())
+                    ((PageStateAdapter)mPagerAdapter).getItem(position).onStepVisible(getApplicationContext());
+                else
+                    ((PageAdapter)mPagerAdapter).getItem(position).onStepVisible(getApplicationContext());
             }
         });
     }
