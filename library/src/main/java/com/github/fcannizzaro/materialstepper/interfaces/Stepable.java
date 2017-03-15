@@ -9,7 +9,7 @@ public interface Stepable {
 
     void onPrevious();
 
-    void onNext(Context applicationContext);
+    void onNext();
 
     void onError();
 

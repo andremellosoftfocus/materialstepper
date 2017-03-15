@@ -28,7 +28,6 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
     Bundle mExtras = new Bundle();
     HashMap<Integer, Bundle> mStepData = new HashMap<>();
 
-    // attributes
     String mTitle;
     String mErrorString;
 
@@ -171,7 +170,7 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
     }
 
     @Override
-    public void onNext(Context applicationContext) {
+    public void onNext() {
 
         AbstractStep step = mSteps.getCurrent();
 

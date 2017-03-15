@@ -56,8 +56,8 @@ public class BaseNavigation extends BasePager implements View.OnClickListener {
             step.onPrevious();
             onPrevious();
         } else if (view == mNext || view == mEnd) {
-            step.onNext(getApplicationContext());
-            onNext(getApplicationContext());
+            step.onNext();
+            onNext();
         }
 
     }

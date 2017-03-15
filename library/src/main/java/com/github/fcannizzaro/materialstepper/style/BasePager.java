@@ -48,15 +48,11 @@ public class BasePager extends BaseStyle {
         mPager = (ViewPager) findViewById(R.id.stepPager);
         assert mPager != null;
         mPager.setAdapter((PagerAdapter) mPagerAdapter);
-        mSteps.get(mSteps.current()).onStepVisible(getApplicationContext());
+        mSteps.get(mSteps.current()).onStepVisible();
         mPager.addOnPageChangeListener(new PageChangeAdapter() {
             @Override
             public void onPageSelected(int position) {
-                //mSteps.get(position).onStepVisible(getApplicationContext());
-                if (getStateAdapter())
-                    ((PageStateAdapter)mPagerAdapter).getItem(position).onStepVisible(getApplicationContext());
-                else
-                    ((PageAdapter)mPagerAdapter).getItem(position).onStepVisible(getApplicationContext());
+                mSteps.get(position).onStepVisible();
             }
         });
     }

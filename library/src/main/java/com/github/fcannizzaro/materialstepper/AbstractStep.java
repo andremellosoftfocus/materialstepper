@@ -33,8 +33,8 @@ public abstract class AbstractStep extends Fragment implements Nextable {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -50,11 +50,11 @@ public abstract class AbstractStep extends Fragment implements Nextable {
     }
 
     @Override
-    public void onStepVisible(Context applicationContext) {
+    public void onStepVisible() {
     }
 
     @Override
-    public void onNext(Context applicationContext) {
+    public void onNext() {
 
     }
 
